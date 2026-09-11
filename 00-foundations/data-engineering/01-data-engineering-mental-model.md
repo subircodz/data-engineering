@@ -1,12 +1,12 @@
-# Day 1 — Data Engineering Mental Model
+# Data Engineering: Basic System Model
 
-## What is Data Engineering?
+## What Data Engineering does
 
-Data Engineering is the engineering work required to make data reliably available in a useful form for people, applications, and analytical systems.
+Data Engineering builds the path that takes data from a real source to a useful and trustworthy destination.
 
-A Data Engineer is not simply “moving files” or “writing SQL”. The core problem is building a trustworthy path from a data source to a useful destination.
+It is more than moving files or writing SQL. The system also needs to deal with validation, transformation, storage, failures, repeated runs, and data quality.
 
-## Core data lifecycle
+## Basic data lifecycle
 
 ```text
 Source
@@ -24,10 +24,10 @@ Consume
 
 ### Source
 
-Where the data originates.
+Where the data starts.
 
 Examples:
-- CSV files produced by a business system
+- CSV file
 - REST API
 - application database
 - event stream
@@ -35,17 +35,17 @@ Examples:
 
 ### Ingest
 
-Getting data from the source into a system where it can be processed reliably.
+Get the source data into a place where the pipeline can work with it reliably.
 
 Questions:
-- How do we connect?
-- How often do we pull data?
-- What happens if the source is unavailable?
-- Can the same data arrive twice?
+- Can we connect to the source?
+- When does data arrive?
+- What if the source is unavailable?
+- Can the same input arrive twice?
 
 ### Store
 
-Persisting data so it can be processed or consumed later.
+Keep data so it can be processed or used later.
 
 Examples:
 - object storage
@@ -54,18 +54,18 @@ Examples:
 
 ### Transform
 
-Changing raw data into a form that is correct and useful.
+Change data into the form needed by the next stage.
 
 Examples:
-- type conversion
-- cleaning invalid records
-- joining datasets
-- calculating metrics
-- standardising fields
+- convert data types
+- clean or reject invalid records
+- join datasets
+- calculate values
+- standardise fields
 
 ### Serve
 
-Making prepared data available to consumers.
+Make prepared data available to the people or systems that need it.
 
 Examples:
 - analytical tables
@@ -75,7 +75,7 @@ Examples:
 
 ### Consume
 
-The people or systems using the data.
+The people or systems that use the prepared data.
 
 Examples:
 - dashboard
@@ -86,103 +86,119 @@ Examples:
 
 ## Pipeline mental model
 
-A pipeline is a controlled sequence of data-processing steps.
+Do not think only:
 
-Do not think:
-
-> “Read CSV → write database.”
+> Read CSV → write database
 
 Think:
 
-> “Where does trustworthy data come from, what transformations are required, where should each state of the data live, and what happens when any step fails?”
+> Where does the data come from? What state of the data should we keep? What must be checked or changed? What happens if a step fails or runs again?
 
-## Four basic pipeline boundaries
+## Basic pipeline boundaries
 
 ```text
 [ SOURCE ] → [ INGEST ] → [ PROCESS ] → [ DESTINATION ]
 ```
 
-Each boundary should have a clear responsibility.
-
-A failure in one boundary should be understandable rather than becoming one large block of code.
+Each part should have a clear job. This makes failures easier to find and fix.
 
 ## Batch vs streaming
 
 ### Batch
 
-Data is processed in groups at scheduled or triggered intervals.
+Process data in groups at scheduled or triggered times.
 
 Examples:
 - process yesterday's sales every morning
-- load a CSV once per hour
+- load a CSV every hour
 
 ### Streaming
 
-Data is processed continuously or in very small increments as events arrive.
+Process events continuously or in very small groups as they arrive.
 
 Examples:
 - transaction events
 - application activity
 - sensor events
 
-The choice depends on requirements such as latency, complexity, cost, and data characteristics.
+The choice depends on required speed, complexity, cost, and the type of data.
 
-## Reliability dimensions introduced today
+## Basic reliability checks
 
-When judging a data pipeline, ask:
+A useful pipeline should be judged on at least these four points:
 
-- **Correctness:** Is the output right?
-- **Completeness:** Did required data arrive?
+- **Correctness:** Is the result right?
+- **Completeness:** Did the required data arrive?
 - **Freshness:** Is the data recent enough?
-- **Availability:** Can consumers get the data when needed?
+- **Availability:** Can users or systems get the data when needed?
 
-These dimensions will become more concrete in later phases.
+## Practical scenario: nightly sales file
 
-## Day 1 focused scenario
+A shop receives a CSV every night and wants a dashboard showing daily revenue.
 
-A shop receives a CSV file every night containing that day's sales. The business wants a dashboard showing daily revenue.
+Example fields:
 
-Before coding, identify:
+```text
+order_id, customer_id, product_id, quantity, price, sale_date
+```
+
+Think through:
 
 1. source
-2. ingestion step
-3. storage location
-4. transformation required
+2. ingestion
+3. where the data is stored
+4. validation and transformation
 5. destination/serving layer
 6. consumer
-7. one likely failure at each major boundary
+7. one possible failure at each major boundary
 
-## Day 1 production scenario
+### Production version
 
-The same shop now has:
+Now assume:
 
-- 500,000 sales rows per day
-- occasional duplicate files
-- occasional malformed rows
-- files sometimes arrive late
-- the job may be restarted after a failure
-- the dashboard must contain trustworthy daily totals
+- 500,000 rows arrive each day
+- duplicate files can arrive
+- some rows are malformed
+- files can arrive late
+- the job can crash and restart
+- daily totals must be trustworthy
 
-Design the pipeline boundaries and explain:
+A good first set of decisions is:
 
-1. What should happen to raw data?
-2. Where should validation happen?
-3. What happens to malformed records?
-4. How would you prevent duplicate processing?
-5. What should happen if the database is unavailable halfway through the load?
-6. What would you log?
-7. What does “successful pipeline run” mean?
+- keep the original input unchanged
+- validate data before sending valid records forward
+- keep malformed records separately with a reason
+- do not confuse duplicate records with processing the same input twice
+- if the database load fails, the next run must be able to continue safely without creating bad duplicates
+- log important steps, counts, failures, and completion
+- a run is successful only when the expected work and required checks pass
 
-## Retrieval questions
+## Failure and restart example
 
-Answer without looking at this note:
+Suppose the pipeline has 500,000 rows and has already inserted 300,000 valid, transformed rows into PostgreSQL when it crashes.
+
+The important question is not only:
+
+> “Start from row 300,001.”
+
+First ask:
+
+> “How do we know which data was successfully committed?”
+
+The system needs a reliable way to know what has already been processed. Otherwise a restart can insert the same data again or skip data.
+
+This problem leads to concepts such as transactions, checkpoints, restartability, and **idempotency**. Those concepts are covered later in the roadmap.
+
+## Checks
+
+Be able to explain these without copying the note:
 
 1. What problem does Data Engineering solve?
 2. What is the difference between ingesting and transforming data?
-3. Why should pipeline stages have clear boundaries?
-4. When would batch processing be a reasonable choice?
-5. Name four dimensions of data reliability introduced today.
-
-## Definition of done
-
-Day 1 is demonstrated when you can design both scenarios above and explain the reasoning behind your boundaries and failure handling without copying a template.
+3. Why should pipeline stages have clear responsibilities?
+4. When is batch processing a reasonable choice?
+5. What are correctness, completeness, freshness, and availability?
+6. Why should raw input normally be preserved?
+7. What should happen to malformed records?
+8. Why is “remove duplicates” not always enough when a pipeline runs twice?
+9. What problem appears when a database load fails halfway through?
