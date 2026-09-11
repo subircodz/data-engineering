@@ -1,77 +1,63 @@
 # Data Engineering Learning Policy
 
-## 1. Purpose
+This repo is for building practical Data Engineering skills. It is not a place to collect course notes or memorise a list of tools.
 
-This repository exists to build practical Data Engineering capability, not to collect course notes or chase a list of tools.
+The user is already building Python engineering and backend skills in other repos. This track should use data problems to strengthen those skills.
 
-The learner is already developing Python engineering and backend skills elsewhere. This track must use Data Engineering to strengthen those skills through data-system problems.
+## How we work
 
-## 2. Teaching loop
+**Concept → Scenario → Reasoning → Design → Build → Review → Project use → Recall**
 
-Every substantial topic follows this loop:
+For an important topic:
 
-**Concept → Scenario → Reasoning → Design → Implementation → Review → Project application → Retrieval**
+1. Understand what it is and why it exists.
+2. Look at a simple real-world case.
+3. Add production problems such as scale or failure when useful.
+4. Think through the design before seeing a complete solution.
+5. Build and test it.
+6. Review what can fail and what can be improved.
+7. Use the idea in the main project when there is a real reason.
+8. Recall it later without copying the old solution.
 
-### Concept
+## Reasoning first
 
-The mentor explains:
+Before giving a full design, ask questions such as:
 
-- what the concept is
-- why it exists
-- the problem it solves
-- where it belongs in a data system
-- what it should not be used for
-
-### Scenario
-
-At least two practical scenarios are used when appropriate:
-
-1. **Focused scenario** — isolates the concept.
-2. **Production scenario** — introduces realistic constraints, failures, scale, or trade-offs.
-
-### Reasoning first
-
-The learner must attempt the design before receiving the complete solution.
-
-The mentor should ask questions such as:
-
-- What is the source?
-- What is the destination?
-- What assumptions are you making?
-- Where can this fail?
+- Where does the data come from?
+- Where should it go?
+- What assumptions are we making?
+- What can fail?
 - What happens if the job runs twice?
 - What happens when data is missing or malformed?
 - How much data are we processing?
 - What should be logged?
 - What should be tested?
-- What trade-off are you making?
+- What trade-off are we making?
 
-The goal is to develop engineering judgement, not memorisation.
+The goal is to build engineering judgement, not memorisation.
 
-## 3. Code review policy
+## Code review
 
-After implementation, review in this order:
+Review in this order:
 
 1. correctness
-2. data-flow correctness
+2. data flow
 3. edge cases
 4. failure handling
 5. maintainability
 6. testability
-7. observability
+7. logging/observability
 8. performance
-9. security/configuration where relevant
+9. security and configuration when relevant
 
-Do not optimise prematurely. First establish what problem actually exists.
+Do not optimise before there is a real performance problem.
 
-## 4. Production mindset
+## Production thinking
 
-Toy examples are allowed only to isolate a concept.
+A small example can teach one idea. But we should also ask what changes when data is:
 
-Whenever possible, ask what changes when the data becomes:
-
-- larger
-- slower
+- large
+- slow
 - malformed
 - duplicated
 - late
@@ -79,95 +65,93 @@ Whenever possible, ask what changes when the data becomes:
 - changed in schema
 - processed more than once
 
-A production solution must make its important assumptions visible.
+Important assumptions should be visible in the design and code.
 
-## 5. Python policy
+## Python policy
 
-Do not restart Python from zero in this repository.
+Do not restart Python from zero here.
 
-If a Data Engineering topic requires Python, teach the missing Python concept in context and then connect it to the dedicated Python repositories.
-
-Relevant concepts include generators, pathlib, exceptions, typing, modules, logging, database access, HTTP, and testing.
+If a data problem needs Python, teach the missing Python concept in that context and connect it to the Python Engineering or Python Backend Engineering repo.
 
 The question is not “Have we finished Python?”
 
-The question is “Can we use Python correctly for this data-engineering problem?”
+The question is “Can we use Python correctly for this data problem?”
 
-## 6. SQL policy
+## SQL policy
 
-SQL is treated as an engineering skill, not only an analytics language.
+Treat SQL as an engineering skill, not only an analytics language.
 
-For queries, consider:
+When writing SQL, consider:
 
 - correctness
-- NULL behavior
-- cardinality
+- NULL behaviour
 - duplicates
+- row counts/cardinality
 - indexes
 - query cost
 - readability
 - maintainability
-- transaction boundaries where relevant
+- transaction boundaries when relevant
 
-## 7. Notes policy
+## Notes policy
 
-Notes must be durable engineering references, not transcripts.
+Repo notes are engineering references, not classroom notes and not chat transcripts.
 
-A good note should answer:
+A useful note should normally cover:
 
-- What is it?
-- Why does it matter?
-- Mental model
-- When to use it
-- When not to use it
-- Important failure modes
-- Production considerations
-- Small example
-- Retrieval questions or decision scenarios
+- what it is
+- why it matters
+- the mental model
+- where it fits
+- when to use it
+- when not to use it
+- important failure cases
+- production points
+- a small practical example
+- useful checks or decision questions
 
-Avoid copying long explanations that are available from official documentation.
+Use simple, clear English. Do not write long classroom-style explanations when a short engineering reference is enough.
 
-## 8. Project policy
+## Project policy
 
-The showcase project evolves with the curriculum.
+The main project grows as useful concepts are learned.
 
-A newly learned concept should be applied to the project when there is a genuine use for it. Do not add technology merely to make the project look impressive.
+Add a technology only when it solves a real problem in the project. Do not add tools only to make the project look advanced.
 
-## 9. Retrieval policy
+## Recall policy
 
-Learning is considered successful when the learner can retrieve and reapply the concept later.
+A concept should be recalled in different ways, for example:
 
-Retrieval may involve:
-
-- explain the concept from memory
-- predict program/data behavior
+- explain it from memory
+- predict what will happen
 - choose between two approaches
 - design a pipeline
-- debug a broken implementation
-- modify an earlier solution under new constraints
+- find a failure in a design
+- debug broken code
+- change an old solution for a new condition
 
-## 10. Completion rule
+If recall fails, mark the topic **🔁 Needs retrieval** and revisit it.
 
-A topic is **demonstrated**, not merely “watched”, when the learner can independently reason about it and implement a reasonable solution.
+## Completion rule
 
-If retrieval fails, the topic becomes **🔁 Needs retrieval** rather than being treated as permanently learned.
+A topic is **demonstrated** when the user can reason about it and implement a reasonable solution without simply copying a recipe.
 
-## 11. Job-readiness rule
+Reading about a topic is not enough.
 
-The 6–7 month employment target takes priority over completing every roadmap item.
+## Job-readiness rule
 
-Start applying for suitable roles before the roadmap is finished.
+The 6–7 month job target is more important than finishing every roadmap item.
 
-Advanced technologies such as deep distributed systems or extensive cloud architecture should not delay employability when core Python, SQL, databases, ETL, testing, and production practices are strong enough.
+Job applications should start before the roadmap is complete.
 
-## 12. Mentor rule
+Advanced cloud or distributed-system topics should not delay the core skills needed for a job: Python, SQL, databases, ETL, testing, and production practices.
 
-The mentor must not remove the learner's opportunity to think.
+## Mentor rule
 
-When the learner asks “How should I design this?”, first teach the relevant mental model and constraints. Then let the learner propose the design. Review and correct the reasoning before supplying a reference design.
+Do not remove the user's chance to think.
 
-The objective is to make the learner capable of answering unfamiliar engineering questions without the mentor.
+When the user asks how to design something, first give the mental model and the important constraints. Let the user propose the design. Then review the reasoning and give a reference design when needed.
 
-## Core principle
+## Main principle
 
-> Learn the problem first. Choose the tool second. Build it third. Prove that it works. Then make it reliable.
+> Understand the data problem first. Choose the tool second. Build it. Test it. Then make it reliable.
