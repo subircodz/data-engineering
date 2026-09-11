@@ -1,40 +1,33 @@
 # Data Engineering
 
-A practical, job-oriented Data Engineering learning and engineering workspace.
+A practical, job-focused Data Engineering workspace.
 
-This repository is not a collection of beginner tutorials. The goal is to learn how real data systems are designed, built, tested, operated, and improved.
+This repo is for learning how to build data systems that work with real data. It is not a collection of beginner tutorials or tool notes.
 
-## Mission
+## Goal
 
-Build the ability to take data from real sources, validate and transform it, store it correctly, move it through reliable pipelines, and produce useful data products.
+Build the ability to take data from a real source, move it safely, check it, transform it, store it, and make it useful for other systems or people.
 
-The learning path is designed to reinforce the user's existing Python, SQL, analytics, and software-engineering work rather than restart Python from zero.
+This track works together with the Python Backend Engineering and Python Engineering repos. We do not restart Python from zero here.
 
-## Learning model
+## How we work
 
-**Understand → Reason → Design → Implement → Test → Debug → Harden → Apply → Retrieve → Reapply**
+**Understand → Reason → Design → Build → Test → Debug → Improve → Apply → Recall → Reuse**
 
-For each major topic:
+For an important topic, first understand the problem. Then work through a real situation, design a solution, write the code, test it, and improve it.
 
-1. Learn the mental model and why the concept exists.
-2. Work through a focused production-style scenario.
-3. Design the solution before coding.
-4. Explain the reasoning, assumptions, trade-offs, and failure cases.
-5. Implement the solution.
-6. Review correctness and production quality.
-7. Apply the concept to the showcase project.
-8. Revisit it later through retrieval and a new scenario.
+The main focus is not memorising tools. The focus is making good engineering decisions.
 
-## Relationship with other learning tracks
+## Other learning tracks
 
-- **Python Backend Engineering** — primary engineering/employability track.
-- **Python Engineering** — deeper Python fundamentals and software-engineering reasoning.
-- **Data Engineering** — parallel data-system track that applies Python and SQL to real data problems.
-- **AI Automation** — intentionally parked until the Python/backend foundation is stronger.
+- **Python Backend Engineering** — main job-focused engineering track.
+- **Python Engineering** — deeper Python and software-engineering work.
+- **Data Engineering** — data systems, pipelines, SQL, databases, ETL/ELT, data quality, and production work.
+- **AI Automation** — kept separate until the Python/backend base is stronger.
 
-This repository must not become a duplicate Python course. When Python is needed, learn only the Python concept required to solve the data-engineering problem, then connect it back to the dedicated Python repositories.
+If a Python concept is needed here, learn only what is needed for the current data problem and connect it back to the Python repos.
 
-## Roadmap at a glance
+## Roadmap
 
 | Phase | Area | Status |
 |---|---|---|
@@ -56,41 +49,68 @@ This repository must not become a duplicate Python course. When Python is needed
 
 ## Showcase project
 
-The repository will gradually build one realistic data platform instead of isolated toy exercises.
+The main project will grow step by step instead of using many unrelated toy projects.
 
-Initial evolution:
+```text
+raw files
+   ↓
+ingestion
+   ↓
+validation
+   ↓
+transformation
+   ↓
+PostgreSQL
+   ↓
+analytical model
+   ↓
+reliable pipeline
+   ↓
+orchestration
+   ↓
+production controls
+```
 
-**raw files → ingestion → validation → transformation → PostgreSQL → analytical model → reliable pipeline → orchestration → production controls**
+Add a new part only when there is a real reason to add it.
 
-The project will grow only as the required concepts are learned.
+## Engineering rules
 
-## Engineering standards
+Code and pipelines should gradually include:
 
-Projects should progressively include:
+- clear responsibilities between parts
+- useful type hints
+- validation of input data
+- clear assumptions
+- proper error handling
+- useful logs
+- repeatable processing
+- idempotency where needed
+- tests for important behaviour
+- config and environment variables
+- clean Git history and useful documentation
+- performance checks based on actual need
 
-- clear boundaries and maintainable structure
-- type hints where useful
-- validation and explicit assumptions
-- meaningful exceptions and failure handling
-- logging and observability
-- deterministic/reproducible processing
-- idempotency where required
-- tests for important behavior
-- configuration through environment/config files
-- Git discipline and documentation
-- performance awareness based on evidence, not premature optimisation
+Do not add complexity just to make a project look advanced.
 
 ## Definition of done
 
-A topic is not complete because a lesson was read.
+A topic is not complete just because we have read about it.
 
-A topic is complete when the learner can explain the mental model, choose an appropriate approach, design it for a realistic scenario, implement it, handle important failure cases, and reapply the idea later without following a recipe.
+It is complete when we can:
 
-## Progress tracking
+1. explain it in simple words
+2. say why we need it
+3. say when to use it
+4. design a solution for a real case
+5. write and test the code
+6. handle important failure cases
+7. use the idea again later without copying a recipe
 
-`ROADMAP.md` is the source of truth for learning progress.
+## Progress
 
-Each completed topic should leave behind a durable engineering note, practical code, or project change when appropriate.
+`ROADMAP.md` is the source of truth for progress.
+
+Important topics should leave a useful engineering note, code, test, or project change.
 
 ## Learning policy
 
@@ -120,6 +140,6 @@ data-engineering/
 └── interview-prep/
 ```
 
-## Guiding principle
+## Main rule
 
-> Do not learn data engineering as a list of tools. Learn how to build reliable systems that move and transform data for a reason.
+> Understand the data problem first. Choose the tool second. Build it. Test it. Then make it reliable.
