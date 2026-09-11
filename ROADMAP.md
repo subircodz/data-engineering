@@ -6,14 +6,14 @@
 
 ## Phase 00 — Foundations & Mental Models 🔄
 
-- [ ] What Data Engineering is
+- [x] What Data Engineering is — Day 1 introduced
 - [ ] Data Engineer vs Data Analyst vs Data Scientist vs Backend Engineer
-- [ ] Data lifecycle: source → ingest → store → transform → serve → consume
-- [ ] Data pipeline mental model
-- [ ] Batch vs streaming
+- [x] Data lifecycle: source → ingest → store → transform → serve → consume — Day 1
+- [x] Data pipeline mental model — Day 1
+- [x] Batch vs streaming — Day 1 introduced
 - [ ] Structured, semi-structured, unstructured data
 - [ ] Data source, destination, pipeline, job, dataset, schema
-- [ ] Reliability basics: correctness, completeness, freshness, availability
+- [x] Reliability basics: correctness, completeness, freshness, availability — Day 1 introduced
 - [ ] Source-of-truth and ownership concepts
 
 **Day 1 target:** data engineering mental model + lifecycle + pipeline boundaries.
