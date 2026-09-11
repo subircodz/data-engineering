@@ -1,22 +1,21 @@
 # Data Engineering Roadmap
 
-**Goal:** become capable of designing and building production-oriented data systems while strengthening Python and SQL through real data problems.
+**Goal:** build the ability to design and build reliable data systems, while strengthening Python and SQL through real data problems.
 
-**Priority:** employability within the next 6–7 months. The roadmap is a capability map, not a requirement to finish every advanced technology before applying for jobs.
+**Priority:** become employable within the next 6–7 months. This roadmap shows the skills to build; it is not a rule that every advanced topic must be finished before applying for jobs.
 
 ## Phase 00 — Foundations & Mental Models 🔄
 
-- [x] What Data Engineering is — Day 1 introduced
+- [x] What Data Engineering is — introduced
 - [ ] Data Engineer vs Data Analyst vs Data Scientist vs Backend Engineer
-- [x] Data lifecycle: source → ingest → store → transform → serve → consume — Day 1
-- [x] Data pipeline mental model — Day 1
-- [x] Batch vs streaming — Day 1 introduced
+- [x] Data lifecycle: source → ingest → store → transform → serve → consume
+- [x] Data pipeline mental model
+- [x] Batch vs streaming — introduced
 - [ ] Structured, semi-structured, unstructured data
 - [ ] Data source, destination, pipeline, job, dataset, schema
-- [x] Reliability basics: correctness, completeness, freshness, availability — Day 1 introduced
-- [ ] Source-of-truth and ownership concepts
-
-**Day 1 target:** data engineering mental model + lifecycle + pipeline boundaries.
+- [x] Reliability basics: correctness, completeness, freshness, availability — introduced
+- [ ] Source-of-truth and ownership
+- [x] Production pipeline failure thinking: preserve raw data, separate validation/transformation, quarantine bad records, think about restart after failure
 
 ## Phase 01 — Data Formats & Schemas
 
@@ -227,11 +226,11 @@ Combine the strongest concepts into one interview-defensible system.
 
 ## Progress rules
 
-- Current phase is the learning focus.
-- Topics can be marked complete only after retrieval/practical demonstration.
-- If a concept is already demonstrated in another repo, reuse it rather than relearning it from scratch.
+- The current phase is the main learning focus.
+- Mark a topic complete only after practical demonstration or retrieval.
+- If a concept is already demonstrated in another repo, reuse it instead of relearning it from zero.
 - Job applications do not wait for roadmap completion.
-- Advanced tools are learned when the underlying problem is understood.
+- Learn advanced tools after understanding the problem they solve.
 
 ## Status legend
 
