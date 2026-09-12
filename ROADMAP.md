@@ -7,7 +7,7 @@
 ## Phase 00 — Foundations & Mental Models 🔄
 
 - [x] What Data Engineering is — introduced
-- [ ] Data Engineer vs Data Analyst vs Data Scientist vs Backend Engineer
+- [x] Data Engineer vs Data Analyst vs Data Scientist vs Backend Engineer — demonstrated
 - [x] Data lifecycle: source → ingest → store → transform → serve → consume
 - [x] Data pipeline mental model
 - [x] Batch vs streaming — introduced
