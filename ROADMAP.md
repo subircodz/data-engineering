@@ -14,7 +14,7 @@
 - [x] Structured, semi-structured, unstructured data — demonstrated
 - [x] Data source, destination, pipeline, job, dataset, schema — demonstrated
 - [x] Reliability basics: correctness, completeness, freshness, availability — introduced
-- [ ] Source-of-truth and ownership
+- [x] Source-of-truth and ownership — demonstrated
 - [x] Production pipeline failure thinking: preserve raw data, separate validation/transformation, quarantine bad records, think about restart after failure
 
 ## Phase 01 — Data Formats & Schemas
