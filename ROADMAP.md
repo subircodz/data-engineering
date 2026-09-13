@@ -2,7 +2,7 @@
 
 **Goal:** build the ability to design and build reliable data systems, while strengthening Python and SQL through real data problems.
 
-**Priority:** become employable within the next 6–7 months. This roadmap shows the skills to build; it is not a rule that every advanced topic must be finished before applying for jobs.
+**Priority:** become employable within the next 4–5 months. This roadmap shows the skills to build; it is not a rule that every advanced topic must be finished before applying for jobs.
 
 ## Phase 00 — Foundations & Mental Models 🔄
 
@@ -11,7 +11,7 @@
 - [x] Data lifecycle: source → ingest → store → transform → serve → consume
 - [x] Data pipeline mental model
 - [x] Batch vs streaming — introduced
-- [ ] Structured, semi-structured, unstructured data
+- [x] Structured, semi-structured, unstructured data — demonstrated
 - [ ] Data source, destination, pipeline, job, dataset, schema
 - [x] Reliability basics: correctness, completeness, freshness, availability — introduced
 - [ ] Source-of-truth and ownership
