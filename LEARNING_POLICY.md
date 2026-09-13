@@ -63,6 +63,52 @@ The portfolio should contain a small number of **serious, believable projects**,
 
 A project should show that the user can work with real data, make reasonable decisions, handle bad data and failures, and explain what was built.
 
+## Study time and weekly assessment
+
+The realistic target is **about 4–5 focused hours per day**, not 8–15 hours of passive study.
+
+A normal study day can roughly contain:
+
+- **1.5–2 hours:** new Data Engineering concepts
+- **1.5–2 hours:** hands-on implementation and exercises
+- **30–45 minutes:** retrieval and interview-style questions
+- **30–60 minutes:** project work
+
+These are flexible ranges, not a strict timetable. Some days will need more project time; other days will need more learning or debugging.
+
+As the track progresses, the balance should change:
+
+- Early stage: roughly **60% learning / 40% practice and retrieval**
+- Later stage: roughly **30% learning / 50% project building / 20% recall and interview preparation**
+
+A bad day with 2 focused hours is still useful. Consistent focused work is more valuable than forcing very long study sessions and losing retention.
+
+### Weekly continuous assessment
+
+Every week, include a deliberate assessment without relying on step-by-step guidance.
+
+The assessment should test a mixture of:
+
+- explaining important concepts from memory
+- reasoning about a real data problem
+- choosing between approaches and explaining why
+- designing a small pipeline
+- writing or debugging Python / SQL
+- identifying failure cases
+- reviewing project decisions
+- answering interview-style questions
+
+Each important topic should be classified after assessment as one of:
+
+- **Strong** — can explain and apply without help
+- **Needs retrieval** — understands it but recall is weak
+- **Weak / reteach** — mental model or implementation is not reliable
+- **Revisit later** — useful, but not currently important enough for deeper study
+
+Assessment results should influence the next week's study rather than simply adding more new topics.
+
+The roadmap is therefore **not a race to finish every checkbox**. The goal is to become employable and capable of building credible projects within the available 4–5 month window.
+
 ## How we work
 
 **Concept → Scenario → Reasoning → Design → Build → Review → Project use → Recall**
