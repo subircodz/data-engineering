@@ -4,7 +4,7 @@
 
 **Priority:** become employable within the next 4–5 months. This roadmap shows the skills to build; it is not a rule that every advanced topic must be finished before applying for jobs.
 
-## Phase 00 — Foundations & Mental Models 🔄
+## Phase 00 — Foundations & Mental Models ✅
 
 - [x] What Data Engineering is — introduced
 - [x] Data Engineer vs Data Analyst vs Data Scientist vs Backend Engineer — demonstrated
@@ -17,7 +17,7 @@
 - [x] Source-of-truth and ownership — demonstrated
 - [x] Production pipeline failure thinking: preserve raw data, separate validation/transformation, quarantine bad records, think about restart after failure
 
-## Phase 01 — Data Formats & Schemas
+## Phase 01 — Data Formats & Schemas 🔄
 
 - [ ] CSV
 - [ ] JSON
