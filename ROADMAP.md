@@ -12,7 +12,7 @@
 - [x] Data pipeline mental model
 - [x] Batch vs streaming — introduced
 - [x] Structured, semi-structured, unstructured data — demonstrated
-- [ ] Data source, destination, pipeline, job, dataset, schema
+- [x] Data source, destination, pipeline, job, dataset, schema — demonstrated
 - [x] Reliability basics: correctness, completeness, freshness, availability — introduced
 - [ ] Source-of-truth and ownership
 - [x] Production pipeline failure thinking: preserve raw data, separate validation/transformation, quarantine bad records, think about restart after failure
