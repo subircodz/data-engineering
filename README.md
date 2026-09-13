@@ -137,6 +137,9 @@ data-engineering/
 ├── 11-big-data/
 ├── 12-production/
 ├── 13-projects/
+├── practicals/
+│   └── csv_parser/
+│       └── qsn_csv_parser.md
 └── interview-prep/
 ```
 
